@@ -1,0 +1,43 @@
+#include "pch.h"
+#include "MinesweeperController.h"
+
+
+MinesweeperController::MinesweeperController(MinesweeperView & v, MinesweeperBoard & b) : view(v), board(b)
+{
+}
+
+void MinesweeperController::handleEvent(sf::Event & event)
+{
+
+	if (event.type == sf::Event::MouseButtonPressed)
+	{
+
+		for (int i = 0; i < board.getBoardHeight(); ++i)
+		{
+			for (int j = 0; j < board.getBoardWidth(); ++j)
+			{
+				if (event.mouseButton.button == sf::Mouse::Left)
+				{
+					if ((event.mouseButton.y > 35 + i * 35) && (event.mouseButton.y < 70 + i * 35) && (event.mouseButton.x > 35 + j * 35) && (event.mouseButton.x < 70 + j * 35))
+					{
+						board.revealField(i, j);
+					}
+				}
+				if (event.mouseButton.button == sf::Mouse::Right)
+				{
+					if ((event.mouseButton.y > 35 + i * 35) && (event.mouseButton.y < 70 + i * 35) && (event.mouseButton.x > 35 + j * 35) && (event.mouseButton.x < 70 + j * 35))
+					{
+						board.toggleFlag(i, j);
+					}
+				}
+			}
+		}
+
+	}
+
+	if (board.getGameState() != RUNNING)
+	{
+		finished = true;
+	}
+
+}
