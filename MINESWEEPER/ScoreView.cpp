@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include "ScoreView.h"
 #include "MinesweeperBoard.h"
 
@@ -16,7 +16,7 @@ ScoreView::ScoreView(MinesweeperBoard & b) : board(b)
 	text1.setCharacterSize(170);
 	text1.setStyle(sf::Text::Regular);
 	text1.setString("GAME OVER");
-	text1.setPosition(150, 300);
+	text1.setPosition(150, 200);
 	text1.setFillColor(sf::Color::Red);
 
 	//FINISHED_WIN
@@ -32,7 +32,21 @@ ScoreView::ScoreView(MinesweeperBoard & b) : board(b)
 	text2.setString("Congratulations!");
 	text2.setPosition(180, 200);
 	text2.setFillColor(sf::Color::Red);
-	//you have the fastest time for this difficulty level, please enter your name
+	
+	//end or play again button
+	if (!font3.loadFromFile("courier-new.ttf"))
+	{
+		std::cout << "error " << std::endl;
+		system("pause");
+	}
+
+
+	text3.setFont(font3);
+	text3.setCharacterSize(20);
+	text3.setStyle(sf::Text::Regular);
+	text3.setString("press space to close the window");
+	text3.setFillColor(sf::Color::White);
+	text3.setPosition(360, 550);
 
 }
 void ScoreView::draw(sf::RenderWindow &win)
@@ -45,4 +59,7 @@ void ScoreView::draw(sf::RenderWindow &win)
 	{
 		win.draw(text2);
 	}
+	
+	win.draw(text3);
+	
 }

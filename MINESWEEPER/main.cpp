@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>

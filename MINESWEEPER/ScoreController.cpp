@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include "ScoreController.h"
 
 ScoreController::ScoreController(ScoreView &v) : view(v)
@@ -11,4 +11,5 @@ void ScoreController::handleEvent(sf::Event &event) {
 			finished = true;
 		}
 	}
+	
 }

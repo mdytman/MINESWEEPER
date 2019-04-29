@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include "GameManager.h"
 
 GameManager::GameManager(IntroController &ic, MinesweeperController &mc, ScoreController &sc)
@@ -8,6 +8,7 @@ GameManager::GameManager(IntroController &ic, MinesweeperController &mc, ScoreCo
 }
 
 void GameManager::updateState() {
+	
 	switch (state) {
 	case INTRO:
 		if (introController.isFinished())
@@ -21,10 +22,6 @@ void GameManager::updateState() {
 			state = SCORE;
 		break;
 	case SCORE:
-		/*if (scoreController.isFinished())
-		{
-			
-		}*/
 		break;
 	}
 }
@@ -57,6 +54,8 @@ void GameManager::draw(sf::RenderWindow &win)
 		break;
 	case SCORE:
 		scoreController.draw(win);
+		if (scoreController.isFinished())
+			win.close();
 		break;
 	}
 }
