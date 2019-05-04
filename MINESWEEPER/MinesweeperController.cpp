@@ -37,7 +37,13 @@ void MinesweeperController::handleEvent(sf::Event & event)
 
 	if (board.getGameState() != RUNNING)
 	{
-		finished = true;
+		if (event.type == sf::Event::KeyPressed)
+		{
+			if (event.key.code == sf::Keyboard::Space)
+			{
+				finished = true;
+			}
+		}
 	}
 
 }

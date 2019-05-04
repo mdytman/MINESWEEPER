@@ -64,7 +64,21 @@ void MinesweeperView::draw(sf::RenderWindow & win)
 	text1.setCharacterSize(30);
 	text1.setStyle(sf::Text::Regular);
 	text1.setOrigin(-6, 2);
-
+	
+	/*if (board.getGameState() == FINISHED_LOSS)
+	{
+		for (int k1 = 0; k1 < board.getBoardHeight(); k1++)
+		{
+			for (int k2 = 0; k2 < board.getBoardWidth(); k2++)
+			{
+				if (board.hasMine(k1, k2) == true)
+				{
+					board.revealField(k1, k2);
+				}
+			}
+		}
+	}*/
+	
 	for (int k1 = 0; k1 < board.getBoardHeight(); ++k1)
 	{
 		for (int k2 = 0; k2 < board.getBoardWidth(); ++k2)
@@ -103,4 +117,24 @@ void MinesweeperView::draw(sf::RenderWindow & win)
 	}
 
 	win.draw(lines);
+
+	if (board.getGameState() != RUNNING)
+	{
+		sf::Font font3;
+		if (!font3.loadFromFile("courier-new.ttf"))
+		{
+			std::cout << "error " << std::endl;
+			system("pause");
+		}
+
+		sf::Text text3;
+		text3.setFont(font3);
+		text3.setCharacterSize(20);
+		text3.setStyle(sf::Text::Regular);
+		text3.setString("press space to finish this game");
+		text3.setFillColor(sf::Color::Red);
+		text3.setPosition(360, 750);
+
+		win.draw(text3);
+	}
 }

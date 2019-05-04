@@ -32,6 +32,7 @@ public:
 	int getMineCount() const;
 	int countMines(int k, int w) const;
 	bool hasFlag(int x, int y) const;
+	bool hasMine(int x, int y) const;
 	void revealField(int x, int y);
 	void toggleFlag(int x, int y);
 	bool isRevealed(int x, int y) const;
