@@ -1,4 +1,4 @@
-//#include "pch.h"
+#include "pch.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -243,7 +243,46 @@ void MinesweeperBoard::revealField(int x, int y)
 	{
 		if (board[x][y].isRevealed == 0 && board[x][y].hasMine == 0)
 		{
-			board[x][y].isRevealed = 1;
+			board[x][y].isRevealed = true;
+			
+			if (countMines(x, y) == 0)
+			{
+				
+					if ((y != 0) && (x != 0) )
+					{
+						revealField(x - 1, y - 1);
+					}
+					if ((y != 0))
+					{
+						revealField(x, y - 1);
+					}
+					if ((y != 0) && (x != height - 1))
+					{
+						revealField(x + 1, y - 1);
+					}
+					if ((x != 0))
+					{
+						revealField(x - 1, y);
+					}
+					if ((x != height - 1))
+					{
+						revealField(x + 1, y);
+					}
+					if ((y != width - 1) && (x != 0))
+					{
+						revealField(x - 1, y + 1);
+					}
+					if ((y != width - 1))
+					{
+						revealField(x, y + 1);
+					}
+					if ((y != width - 1) && (x != height - 1))
+					{
+						revealField(x + 1, y + 1);
+					}
+				
+			}
+						
 		}
 		if (board[x][y].isRevealed == 0 && board[x][y].hasMine == 1)
 		{

@@ -1,4 +1,4 @@
-//#include "pch.h"
+#include "pch.h"
 #include <iostream>
 #include "MSBoardTextView.h"
 #include "MinesweeperBoard.h"

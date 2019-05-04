@@ -1,5 +1,7 @@
-//#include "pch.h"
+#include "pch.h"
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "MinesweeperView.h"
@@ -14,12 +16,12 @@
 
 
 
+
 int main()
 {
-	MinesweeperBoard b(30, 20, HARD);
+	srand(time(NULL));
 	
-	MSBoardTextView tView(b);
-	tView.display();
+	MinesweeperBoard b(30, 20, HARD);
 	
 	IntroView iv;
 	IntroController ic(iv, b);

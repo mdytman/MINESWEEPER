@@ -1,4 +1,4 @@
-//#include "pch.h"
+#include "pch.h"
 #include "IntroController.h"
 
 IntroController::IntroController(IntroView & v, MinesweeperBoard & b) : view(v), board(b)
