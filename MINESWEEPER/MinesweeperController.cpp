@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include "MinesweeperController.h"
 
 
@@ -9,7 +9,7 @@ MinesweeperController::MinesweeperController(MinesweeperView & v, MinesweeperBoa
 void MinesweeperController::handleEvent(sf::Event & event)
 {
 
-	if (event.type == sf::Event::MouseButtonPressed)
+	if (event.type == sf::Event::MouseButtonPressed && board.getGameState() == RUNNING)
 	{
 
 		for (int i = 0; i < board.getBoardHeight(); ++i)

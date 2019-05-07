@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include "MinesweeperView.h"
 #include "MSBoardTextView.h"
 #include "MinesweeperBoard.h"
@@ -131,7 +131,7 @@ void MinesweeperView::draw(sf::RenderWindow & win)
 		text3.setFont(font3);
 		text3.setCharacterSize(20);
 		text3.setStyle(sf::Text::Regular);
-		text3.setString("press space to finish this game");
+		text3.setString("press space to see results");
 		text3.setFillColor(sf::Color::Red);
 		text3.setPosition(360, 750);
 

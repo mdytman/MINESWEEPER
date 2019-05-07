@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -312,6 +312,16 @@ void MinesweeperBoard::revealField(int x, int y)
 			if (callCount > 1)
 			{
 				board[x][y].isRevealed = 1;
+				for (int i = 0; i < height; i++)
+				{
+					for (int j = 0; j < width; j++)
+					{
+						if (board[i][j].hasMine)
+						{
+							board[i][j].isRevealed = true;
+						}
+					}
+				}
 				state = FINISHED_LOSS;
 			}
 		}
@@ -413,5 +423,3 @@ char MinesweeperBoard::getFieldInfo(int x, int y) const
 		return '0' + tmpx;
 	}
 }
-
-
